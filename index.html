@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foysal Mahmud Purno — Cybersecurity & Software Engineering</title>
+<meta name="description" content="Portfolio of Foysal Mahmud Purno — Software Engineering student majoring in Cybersecurity. Networking, penetration testing tools, and full-stack projects.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= PRELOADER ================= -->
+<div id="preloader" aria-hidden="true">
+  <div class="pre-inner">
+    <div class="pre-glyph">
+      <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
+        <path d="M24 4 L42 11 V22 C42 33 34.5 41 24 44 C13.5 41 6 33 6 22 V11 Z" stroke="url(#pg)" stroke-width="2"/>
+        <path d="M17 24 L22 29 L32 18" stroke="url(#pg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="pg" x1="0" y1="0" x2="48" y2="48"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#e879f9"/></linearGradient></defs>
+      </svg>
+    </div>
+    <div class="pre-terminal">
+      <p class="pre-line" data-text="initializing_secure_session..."></p>
+      <p class="pre-line" data-text="establishing_encrypted_tunnel... [OK]"></p>
+      <p class="pre-line" data-text="scanning_ports... none open to the public"></p>
+      <p class="pre-line" data-text="loading portfolio.purno --user=visitor"></p>
+      <p class="pre-line pre-final" data-text="access_granted // welcome"></p>
+    </div>
+    <div class="pre-bar-track"><div class="pre-bar-fill" id="preBarFill"></div></div>
+    <div class="pre-percent" id="prePercent">00%</div>
+  </div>
+</div>
+
+<!-- ================= WELCOME MODAL ================= -->
+<div id="welcomeOverlay" class="welcome-overlay" hidden>
+  <div class="welcome-card glass" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <button class="welcome-close" id="welcomeClose" aria-label="Close welcome message">&times;</button>
+    <span class="eyebrow mono"><span class="dot dot-pulse"></span> new_connection_detected</span>
+    <h3 id="welcomeTitle">Hey, first time here? 👋</h3>
+    <p>I'm Foysal — glad you found your way in. Poke around, check out what I've built, and if something clicks, my inbox is always open.</p>
+    <button class="btn btn-primary" id="welcomeEnter">Let's go →</button>
+  </div>
+</div>
+
+<!-- ================= BACKGROUND ================= -->
+<div class="bg-layer" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav-wrap">
+  <nav class="nav glass" id="mainNav">
+    <a href="#home" class="nav-logo mono">FM<span class="accent-text">_</span>PURNO</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Toolkit</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#certifications" class="nav-link">Certs</a></li>
+      <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="home">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-copy reveal-up">
+        <span class="eyebrow mono"><span class="dot dot-pulse"></span> status: online &amp; hardening systems</span>
+        <h1 class="hero-title">Foysal Mahmud <span class="accent-text">Purno</span></h1>
+        <p class="hero-role mono">Software Engineering Student <span class="sep">//</span> Cybersecurity Track</p>
+        <p class="hero-desc">I break things on purpose so they don't break by accident — mapping networks, stress-testing systems with Kali and Burp Suite, and building software that holds up under pressure.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="assets/Foysal_Mahmud_Purno_Resume.pdf" class="btn btn-ghost" download>Download Résumé</a>
+        </div>
+        <div class="hero-social">
+          <a href="https://github.com/git-purno" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.63 1.6.23 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.15v3.19c0 .3.21.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/foysal.mahmud.purno" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.8 8.44-4.95 8.44-9.94Z"/></svg>
+          </a>
+          <a href="mailto:foysalmahmud787@gmail.com" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.2.3 7.8 6.1 7.8-6.1H4.2Zm15.6 1.5-7.36 5.76a1 1 0 0 1-1.28 0L3.8 7.3V18.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.3Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal-up delay-1">
+        <div class="soc-card glass">
+          <div class="soc-scanline"></div>
+          <div class="soc-head mono">
+            <span><span class="dot dot-pulse dot-cyan"></span> SOC_MONITOR</span>
+            <span id="liveClock">--:--:--</span>
+          </div>
+          <div class="soc-photo">
+            <img src="assets/headshot.jpg" alt="Portrait of Foysal Mahmud Purno" width="120" height="132">
+          </div>
+          <ul class="soc-list mono">
+            <li><span>STATUS</span><span class="soc-ok">ONLINE</span></li>
+            <li><span>BASE</span><span>Dhaka, BD</span></li>
+            <li><span>FOCUS</span><span>Network Sec // Pentest</span></li>
+            <li><span>DEGREE</span><span>BSc SWE (Cybersecurity)</span></li>
+            <li><span>CGPA</span><span>3.27 / 4.00</span></li>
+            <li><span>UPTIME</span><span id="uptimeCounter">0 days</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue mono" aria-label="Scroll to content">scroll<span class="chev">⌄</span></a>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// whoami</span>
+      <h2 class="section-title reveal-up">About</h2>
+      <div class="about-grid">
+        <p class="about-text reveal-up">
+          I'm a Software Engineering student at Daffodil International University, majoring in Cybersecurity. What pulls me into this field is the puzzle of it — mapping how networks talk to each other, poking at systems with Kali Linux and Burp Suite to see where they give, then figuring out how to close that gap. I've spent time pulling routers apart and putting them back together smarter, and I carry that same hands-on curiosity from hardware — Arduino, ESP32, IoT builds — into the software and security side of things. Outside of security work, I write full-stack code, and I like projects that touch both worlds.
+        </p>
+        <div class="about-data glass reveal-up delay-1">
+          <ul class="mono">
+            <li><span>degree</span><span>BSc, Software Engineering</span></li>
+            <li><span>major</span><span>Cybersecurity</span></li>
+            <li><span>institute</span><span>Daffodil International University</span></li>
+            <li><span>status</span><span>2023 — Present</span></li>
+            <li><span>base</span><span>Dhaka, Bangladesh</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// toolkit</span>
+      <h2 class="section-title reveal-up">What I Work With</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card glass reveal-up">
+          <h3><span class="skill-icon">🛡️</span>Offensive Security &amp; Recon</h3>
+          <div class="tag-row">
+            <span class="tag">Kali Linux</span><span class="tag">Nmap</span><span class="tag">Burp Suite</span>
+            <span class="tag">Wireshark</span><span class="tag">Recon-ng</span><span class="tag">theHarvester</span>
+            <span class="tag">Sherlock</span><span class="tag">John the Ripper</span><span class="tag">Rapid7</span>
+          </div>
+        </div>
+
+        <div class="skill-card glass reveal-up delay-1">
+          <h3><span class="skill-icon">⌘</span>Languages</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">PHP</span>
+          </div>
+        </div>
+
+        <div class="skill-card glass reveal-up delay-2">
+          <h3><span class="skill-icon">🌐</span>Systems &amp; Infrastructure</h3>
+          <div class="tag-row">
+            <span class="tag">Networking</span><span class="tag">Cloud Security</span>
+            <span class="tag">Embedded Systems</span><span class="tag">Arduino / ESP32</span><span class="tag">Hardware</span>
+          </div>
+        </div>
+
+        <div class="skill-card glass reveal-up delay-3">
+          <h3><span class="skill-icon">◆</span>Beyond the Terminal</h3>
+          <div class="tag-row">
+            <span class="tag">Leadership</span><span class="tag">Problem Solving</span><span class="tag">Communication</span>
+            <span class="tag">Time Management</span><span class="tag">Team Collaboration</span><span class="tag">Presentation</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// projects</span>
+      <h2 class="section-title reveal-up">Selected Work</h2>
+      <div class="projects-grid">
+
+        <article class="project-card glass reveal-up">
+          <div class="project-top">
+            <span class="project-tag">Web Platform</span>
+          </div>
+          <h3>Issue-Trackr</h3>
+          <p>An Issue &amp; Change Request Management System that lets teams report, assign, and resolve system issues through a shared workflow — with status tracking and comment threads so nothing gets lost between report and resolution.</p>
+          <div class="tag-row small"><span class="tag">Web App</span><span class="tag">Workflow Management</span></div>
+          <a href="https://github.com/git-purno/issue-trackr.git" target="_blank" rel="noopener" class="project-link">View Repository →</a>
+        </article>
+
+        <article class="project-card glass reveal-up delay-1">
+          <div class="project-top">
+            <span class="project-tag">Desktop App</span>
+          </div>
+          <h3>Online Supershop Management System</h3>
+          <p>A desktop retail application covering the full store loop — stocking inventory, ringing up sales at checkout, and reporting on performance — built for speed at the counter and accuracy in the records behind it.</p>
+          <div class="tag-row small"><span class="tag">Java</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="project-card glass reveal-up delay-2">
+          <div class="project-top">
+            <span class="project-tag">Full-Stack</span>
+          </div>
+          <h3>University Student Bus Management System</h3>
+          <p>A full-stack Laravel application for a university transport office to manage routes, assign buses and drivers, publish schedules, and track student allocations — replacing spreadsheets and word-of-mouth coordination.</p>
+          <div class="tag-row small"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="project-card glass reveal-up delay-3">
+          <div class="project-top">
+            <span class="project-tag">Robotics</span>
+          </div>
+          <h3>GreenEV</h3>
+          <p>A solar-powered EV charging station with an integrated storage unit — charging directly from solar when available, and drawing on stored power when it isn't, keeping the charge cycle running independent of sunlight.</p>
+          <div class="tag-row small"><span class="tag">Solar Power</span><span class="tag">Embedded Systems</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// experience</span>
+      <h2 class="section-title reveal-up">Where I've Worked</h2>
+
+      <div class="timeline">
+        <div class="timeline-item reveal-up">
+          <div class="timeline-node"></div>
+          <div class="timeline-card glass">
+            <span class="mono timeline-date">Nov 2021 — Nov 2022</span>
+            <h3>Owner &amp; Designer</h3>
+            <p class="timeline-org">Self-Employed — Institutional ID Card Design &amp; Printing Service</p>
+            <p>Founded and ran an ID card design and printing service for local schools and institutions, owning the process end to end — from client briefs and design mock-ups through print production and on-time delivery.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up delay-1">
+          <div class="timeline-node"></div>
+          <div class="timeline-card glass">
+            <span class="mono timeline-date">Mar 2021 — Sep 2021</span>
+            <h3>Video Editor</h3>
+            <p class="timeline-org">Office of the Deputy Commissioner, Netrakona — "Amar Ghore Amar School" Project</p>
+            <p>Collected, edited, and delivered educational video content for a government digital-learning initiative, managing a steady content pipeline under fixed turnaround times.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="activities glass reveal-up delay-2">
+        <h3 class="mono">also_involved_in</h3>
+        <ul>
+          <li>Executive Member, Software Engineering Club — Daffodil International University</li>
+          <li>Organizing Team Member, Code Trap Programming Contest — DIU</li>
+          <li>Volunteer across various campus programs and occasions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CERTIFICATIONS ================= -->
+  <section class="section" id="certifications">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// certifications</span>
+      <h2 class="section-title reveal-up">Certifications</h2>
+      <div class="empty-card glass reveal-up">
+        <div class="empty-icon">📜</div>
+        <h3>Nothing here — yet</h3>
+        <p>I haven't earned any formal certifications so far, but this slot is reserved. First on the list: CompTIA Security+ and a few TryHackMe learning paths. Check back soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// contact</span>
+      <h2 class="section-title reveal-up">Let's Connect</h2>
+      <div class="contact-card glass reveal-up">
+        <p class="contact-lead">Open to internships and entry-level roles in software engineering or security. If something here caught your eye, my inbox is open.</p>
+        <div class="contact-grid">
+          <a href="mailto:foysalmahmud787@gmail.com" class="contact-item">
+            <span class="contact-label mono">email</span>
+            <span class="contact-value">foysalmahmud787@gmail.com</span>
+          </a>
+          <a href="https://github.com/git-purno" target="_blank" rel="noopener" class="contact-item">
+            <span class="contact-label mono">github</span>
+            <span class="contact-value">github.com/git-purno</span>
+          </a>
+          <a href="https://www.facebook.com/foysal.mahmud.purno" target="_blank" rel="noopener" class="contact-item">
+            <span class="contact-label mono">facebook</span>
+            <span class="contact-value">foysal.mahmud.purno</span>
+          </a>
+          <span class="contact-item contact-item-disabled">
+            <span class="contact-label mono">linkedin</span>
+            <span class="contact-value">coming soon</span>
+          </span>
+        </div>
+        <a href="assets/Foysal_Mahmud_Purno_Resume.pdf" class="btn btn-primary" download>Download Résumé</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="mono">© <span id="year"></span> Foysal Mahmud Purno — built line by line, tested port by port.</p>
+  <a href="#home" class="back-top mono">back to top ↑</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
