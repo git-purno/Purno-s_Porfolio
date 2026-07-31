@@ -160,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============ SET FOOTER YEAR ============ */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-
   /* ============ PROJECT DETAIL MODAL ============ */
   const PROJECTS = {
     issuetrackr: {
