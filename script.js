@@ -160,4 +160,81 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============ SET FOOTER YEAR ============ */
   document.getElementById('year').textContent = new Date().getFullYear();
 
+
+  /* ============ PROJECT DETAIL MODAL ============ */
+  const PROJECTS = {
+    issuetrackr: {
+      tag: 'Web Platform',
+      title: 'Issue-Trackr',
+      image: 'assets/thumb-issuetrackr.svg',
+      desc: 'An Issue & Change Request Management System that lets teams report, assign, and resolve system issues through a shared workflow — with status tracking and comment threads so nothing gets lost between report and resolution.',
+      tags: ['Web App', 'Workflow Management'],
+      link: 'https://github.com/git-purno/issue-trackr.git'
+    },
+    supershop: {
+      tag: 'Desktop App',
+      title: 'Online Supershop Management System',
+      image: 'assets/thumb-supershop.svg',
+      desc: 'A desktop retail application covering the full store loop — stocking inventory, ringing up sales at checkout, and reporting on performance — built for speed at the counter and accuracy in the records behind it.',
+      tags: ['Java', 'MySQL'],
+      link: ''
+    },
+    bus: {
+      tag: 'Full-Stack',
+      title: 'University Student Bus Management System',
+      image: 'assets/thumb-bus.svg',
+      desc: 'A full-stack Laravel application for a university transport office to manage routes, assign buses and drivers, publish schedules, and track student allocations — replacing spreadsheets and word-of-mouth coordination.',
+      tags: ['Laravel', 'PHP', 'MySQL'],
+      link: ''
+    },
+    greenev: {
+      tag: 'Robotics',
+      title: 'GreenEV',
+      image: 'assets/thumb-greenev.svg',
+      desc: 'A solar-powered EV charging station with an integrated storage unit — charging directly from solar when available, and drawing on stored power when it isn\u2019t, keeping the charge cycle running independent of sunlight.',
+      tags: ['Solar Power', 'Embedded Systems'],
+      link: ''
+    }
+  };
+
+  const projectOverlay = document.getElementById('projectOverlay');
+  const modalClose = document.getElementById('modalClose');
+  const modalImage = document.getElementById('modalImage');
+  const modalTag = document.getElementById('modalTag');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalTags = document.getElementById('modalTags');
+  const modalLink = document.getElementById('modalLink');
+
+  function openProject(id){
+    const p = PROJECTS[id];
+    if (!p) return;
+    modalImage.src = p.image;
+    modalImage.alt = p.title + ' project thumbnail';
+    modalTag.textContent = p.tag;
+    modalTitle.textContent = p.title;
+    modalDesc.textContent = p.desc;
+    modalTags.innerHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    if (p.link){
+      modalLink.href = p.link;
+      modalLink.style.display = 'inline-block';
+    } else {
+      modalLink.removeAttribute('href');
+      modalLink.style.display = 'none';
+    }
+    projectOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeProject(){
+    projectOverlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', () => openProject(card.dataset.project));
+  });
+  modalClose.addEventListener('click', closeProject);
+  projectOverlay.addEventListener('click', (e) => { if (e.target === projectOverlay) closeProject(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !projectOverlay.hidden) closeProject(); });
+
 });

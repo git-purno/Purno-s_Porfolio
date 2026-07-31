@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgBus" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#101a2e"/>
+      <stop offset="1" stop-color="#12101f"/>
+    </linearGradient>
+    <radialGradient id="glowBus" cx="0.2" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBus2" cx="0.9" cy="0.9" r="0.7">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#bgBus)"/>
+  <rect width="400" height="240" fill="url(#glowBus)"/>
+  <rect width="400" height="240" fill="url(#glowBus2)"/>
+
+  <g opacity="0.15" stroke="#ffffff" stroke-width="1">
+    <circle cx="60" cy="60" r="2"/><circle cx="120" cy="40" r="2"/><circle cx="200" cy="70" r="2"/>
+    <circle cx="270" cy="35" r="2"/><circle cx="330" cy="65" r="2"/><circle cx="90" cy="180" r="2"/>
+    <circle cx="230" cy="190" r="2"/><circle cx="340" cy="170" r="2"/>
+  </g>
+
+  <!-- route path with stops -->
+  <path d="M40 190 C 100 140, 140 210, 200 150 S 300 90, 360 60" fill="none" stroke="#c4b5fd" stroke-width="2.5" stroke-dasharray="7 8" opacity="0.9"/>
+
+  <g fill="#f2eefc">
+    <circle cx="40" cy="190" r="6"/>
+    <circle cx="200" cy="150" r="6"/>
+    <circle cx="360" cy="60" r="6"/>
+  </g>
+  <!-- pin markers -->
+  <g fill="none" stroke="#e879f9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 190 c0 -16 22 -16 22 0 c0 12 -11 22 -11 30 c0 -8 -11 -18 -11 -30 z" transform="translate(-11,-45)"/>
+  </g>
+  <g fill="#22d3ee" opacity="0.85">
+    <rect x="270" y="140" width="60" height="34" rx="8"/>
+  </g>
+  <g fill="none" stroke="#120f1f" stroke-width="2.2" stroke-linecap="round">
+    <rect x="278" y="148" width="16" height="10" rx="2"/>
+    <rect x="298" y="148" width="16" height="10" rx="2"/>
+    <circle cx="284" cy="172" r="3"/>
+    <circle cx="316" cy="172" r="3"/>
+  </g>
+</svg>
