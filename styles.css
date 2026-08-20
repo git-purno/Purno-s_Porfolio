@@ -198,7 +198,7 @@ img{display:block; max-width:100%;}
 
 /* ============ HERO ============ */
 .hero{min-height:100vh; display:flex; align-items:center; padding:130px 6vw 80px; position:relative;}
-.hero-inner{max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:1.15fr .85fr; gap:60px; align-items:center;}
+.hero-inner{max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:center;}
 .hero-title{font-family:var(--font-display); font-size:clamp(2.4rem, 5.5vw, 4.2rem); line-height:1.05; margin:18px 0 10px; font-weight:700;}
 .hero-role{font-size:1rem; color:var(--violet-2); margin-bottom:18px;}
 .hero-desc{color:var(--text-muted); max-width:52ch; font-size:1.05rem; margin-bottom:32px;}
@@ -207,21 +207,34 @@ img{display:block; max-width:100%;}
 .hero-social a{color:var(--text-dim); transition:color .2s, transform .2s;}
 .hero-social a:hover{color:var(--violet-2); transform:translateY(-2px);}
 
-.soc-card{padding:22px; overflow:hidden;}
-.soc-scanline{
-  position:absolute; left:0; right:0; height:40%; top:-40%;
-  background:linear-gradient(180deg, transparent, rgba(var(--violet-rgb),.14), transparent);
-  animation:scan 5s linear infinite;
+/* ============ HERO PHOTO + FLOATING BADGES ============ */
+.hero-photo{position:relative; width:min(320px, 78vw); margin:0 auto; overflow:visible;}
+.hero-photo-frame{
+  position:relative; width:100%; aspect-ratio:10/11; border-radius:32px; overflow:hidden;
+  border:1px solid var(--border-strong);
+  box-shadow:0 20px 50px var(--glass-shadow), inset 0 1px 0 var(--glass-inset);
 }
-@keyframes scan{0%{top:-40%;} 100%{top:100%;}}
-.soc-head{display:flex; justify-content:space-between; font-size:.72rem; color:var(--text-dim); letter-spacing:.05em; margin-bottom:16px;}
-.soc-head span:first-child{display:flex; align-items:center; gap:6px;}
-.soc-photo{width:100%; display:flex; justify-content:center; margin-bottom:16px;}
-.soc-photo img{width:120px; height:132px; object-fit:cover; border-radius:14px; border:1px solid var(--border-strong); filter:saturate(1.05) contrast(1.03);}
-.soc-list li{display:flex; justify-content:space-between; font-size:.78rem; padding:8px 0; border-top:1px dashed var(--border);}
-.soc-list li:first-child{border-top:none;}
-.soc-list li span:first-child{color:var(--text-dim);}
-.soc-ok{color:var(--status-ok);}
+.hero-photo-frame img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.03);}
+.hero-photo-frame::after{
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  background:linear-gradient(160deg, rgba(var(--violet-rgb),.16), transparent 45%);
+  pointer-events:none;
+}
+
+.float-badge{
+  position:absolute; display:inline-flex; align-items:center; gap:7px;
+  background:var(--surface-strong); border:1px solid var(--border-strong); border-radius:100px;
+  padding:9px 15px; font-size:.78rem; font-weight:600; color:var(--text);
+  backdrop-filter:blur(16px) saturate(160%); -webkit-backdrop-filter:blur(16px) saturate(160%);
+  box-shadow:0 10px 26px var(--glass-shadow);
+  animation:badgeFloat 4.5s ease-in-out infinite;
+}
+.badge-status{top:-14px; left:-16px; color:var(--status-ok); animation-delay:0s;}
+.badge-status .dot{margin-right:1px;}
+.badge-clock{top:26px; right:-30px; color:var(--violet-2); font-size:.74rem; animation-delay:.6s;}
+.badge-shield{bottom:54px; left:-34px; color:var(--violet); animation-delay:1.2s;}
+.badge-uptime{bottom:-14px; right:-8px; color:var(--text-muted); font-size:.72rem; animation-delay:1.8s;}
+@keyframes badgeFloat{0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);}}
 
 .scroll-cue{
   position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
@@ -408,8 +421,10 @@ img{display:block; max-width:100%;}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:960px){
-  .hero-inner{grid-template-columns:1fr; gap:50px;}
-  .hero-panel{max-width:380px;}
+  .hero-inner{grid-template-columns:1fr; gap:44px; text-align:center;}
+  .hero-photo{width:min(260px, 70vw);}
+  .hero-desc{margin-left:auto; margin-right:auto;}
+  .hero-actions{justify-content:center;}
   .about-grid{grid-template-columns:1fr;}
   .skills-grid{grid-template-columns:1fr;}
   .projects-grid{grid-template-columns:repeat(2,1fr);}
@@ -438,4 +453,9 @@ img{display:block; max-width:100%;}
   .projects-grid{grid-template-columns:1fr;}
   .modal-thumb{width:calc(100% + 40px); margin:0 -20px 18px;}
   .project-modal{padding:0 20px 24px;}
+  .float-badge{padding:7px 12px; font-size:.7rem;}
+  .badge-status{top:-8px; left:-6px;}
+  .badge-clock{top:14px; right:-10px;}
+  .badge-shield{bottom:44px; left:-12px;}
+  .badge-uptime{bottom:-8px; right:0;}
 }

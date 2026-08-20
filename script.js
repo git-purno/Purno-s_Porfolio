@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const RING_CIRCUMFERENCE = 2 * Math.PI * 52; // matches r=52 in the SVG
 
   const STATUS_MESSAGES = [
-    { at: 0, text: 'Loading portfolio…' },
-    { at: 30, text: 'Warming up the glass panels…' },
-    { at: 65, text: 'Almost there…' },
-    { at: 95, text: 'Welcome — take a look around.' }
+    { at: 0,  text: '🛡️ Bypassing the firewall… (it\u2019s just wifi, relax)' },
+    { at: 20, text: '🔑 Brute-forcing root password: trying "password123"…' },
+    { at: 40, text: '🦠 Convincing the antivirus I\u2019m not a virus…' },
+    { at: 60, text: '🐏 Downloading more RAM…' },
+    { at: 80, text: '💻 sudo make me a portfolio' },
+    { at: 96, text: '✅ Access Granted. Please don\u2019t hack me back.' }
   ];
   let lastStatus = '';
 
@@ -26,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let progress = 0;
   const progressTimer = setInterval(() => {
-    progress = Math.min(100, progress + Math.random() * 13);
+    progress = Math.min(100, progress + Math.random() * 9);
     ringFill.style.strokeDashoffset = String(RING_CIRCUMFERENCE * (1 - progress / 100));
     percentLabel.textContent = Math.floor(progress) + '%';
     updateStatus(progress);
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.style.overflow = 'hidden';
   ringFill.style.strokeDasharray = String(RING_CIRCUMFERENCE);
   ringFill.style.strokeDashoffset = String(RING_CIRCUMFERENCE);
-  setTimeout(finishBoot, 1900);
+  setTimeout(finishBoot, 3200);
 
   /* ============ WELCOME MODAL (first visit only) ============ */
   const welcomeOverlay = document.getElementById('welcomeOverlay');
