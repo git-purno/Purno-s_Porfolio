@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,22 +18,15 @@
 <!-- ================= PRELOADER ================= -->
 <div id="preloader" aria-hidden="true">
   <div class="pre-inner">
-    <div class="pre-glyph">
-      <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
-        <path d="M24 4 L42 11 V22 C42 33 34.5 41 24 44 C13.5 41 6 33 6 22 V11 Z" stroke="url(#pg)" stroke-width="2"/>
-        <path d="M17 24 L22 29 L32 18" stroke="url(#pg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <defs><linearGradient id="pg" x1="0" y1="0" x2="48" y2="48"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#e879f9"/></linearGradient></defs>
+    <div class="pre-ring">
+      <svg class="pre-ring-svg" viewBox="0 0 120 120">
+        <circle class="pre-ring-track" cx="60" cy="60" r="52"/>
+        <circle class="pre-ring-fill" id="preRingFill" cx="60" cy="60" r="52"/>
       </svg>
+      <span class="pre-ring-percent" id="prePercent">0%</span>
     </div>
-    <div class="pre-terminal">
-      <p class="pre-line" data-text="initializing_secure_session..."></p>
-      <p class="pre-line" data-text="establishing_encrypted_tunnel... [OK]"></p>
-      <p class="pre-line" data-text="scanning_ports... none open to the public"></p>
-      <p class="pre-line" data-text="loading portfolio.purno --user=visitor"></p>
-      <p class="pre-line pre-final" data-text="access_granted // welcome"></p>
-    </div>
-    <div class="pre-bar-track"><div class="pre-bar-fill" id="preBarFill"></div></div>
-    <div class="pre-percent" id="prePercent">00%</div>
+    <p class="pre-name">Foysal Mahmud Purno</p>
+    <p class="pre-status mono" id="preStatus">Loading portfolio…</p>
   </div>
 </div>
 
@@ -67,12 +60,11 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#education" class="nav-link">Education</a></li>
-      <li><a href="#research" class="nav-link">Research</a></li>
-      <li><a href="#skills" class="nav-link">Toolkit</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
       <li><a href="#projects" class="nav-link">Projects</a></li>
       <li><a href="#experience" class="nav-link">Experience</a></li>
-      <li><a href="#certifications" class="nav-link">Certs</a></li>
+      <li><a href="#research" class="nav-link">Research</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
       <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
     </ul>
   </nav>
@@ -90,6 +82,7 @@
         <p class="hero-desc">I break things on purpose so they don't break by accident — mapping networks, stress-testing systems with Kali and Burp Suite, and building software that holds up under pressure.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#research" class="btn btn-ghost">View Research</a>
           <a href="assets/Foysal_Mahmud_Purno_Resume.pdf" class="btn btn-ghost" download>Download Résumé</a>
         </div>
         <div class="hero-social">
@@ -146,59 +139,6 @@
             <li><span>open_to</span><span>Internships // Entry-level roles</span></li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= EDUCATION ================= -->
-  <section class="section" id="education">
-    <div class="section-inner">
-      <span class="section-eyebrow mono reveal-up">// education</span>
-      <h2 class="section-title reveal-up">Education</h2>
-
-      <div class="timeline">
-        <div class="timeline-item reveal-up">
-          <div class="timeline-node"></div>
-          <div class="timeline-card glass">
-            <span class="mono timeline-date">2023 — Present</span>
-            <h3>BSc in Software Engineering <span class="accent-text">— Cybersecurity Major</span></h3>
-            <p class="timeline-org">Daffodil International University</p>
-            <p>Currently in progress, CGPA 3.27 / 4.00 so far. Coursework and personal projects lean toward networking, systems security, and applied software development.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal-up delay-1">
-          <div class="timeline-node"></div>
-          <div class="timeline-card glass">
-            <span class="mono timeline-date">2020</span>
-            <h3>Higher Secondary Certificate (H.S.C)</h3>
-            <p class="timeline-org">Abu Abbas College — Science</p>
-            <p>Completed with a GPA of 4.83 / 5.00.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal-up delay-2">
-          <div class="timeline-node"></div>
-          <div class="timeline-card glass">
-            <span class="mono timeline-date">2018</span>
-            <h3>Secondary School Certificate (S.S.C)</h3>
-            <p class="timeline-org">Anjuman Adarsha Govt. High School — Science</p>
-            <p>Completed with a GPA of 4.44 / 5.00.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= RESEARCH ================= -->
-  <section class="section" id="research">
-    <div class="section-inner">
-      <span class="section-eyebrow mono reveal-up">// research</span>
-      <h2 class="section-title reveal-up">Research</h2>
-      <div class="empty-card glass reveal-up">
-        <div class="empty-icon">🔬</div>
-        <h3>Details coming soon</h3>
-        <p>This section is reserved for current research work — placeholder content until the specifics are confirmed.</p>
       </div>
     </div>
   </section>
@@ -341,6 +281,94 @@
     </div>
   </section>
 
+  <!-- ================= RESEARCH ================= -->
+  <section class="section" id="research">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// research</span>
+      <h2 class="section-title reveal-up">Papers &amp; Research</h2>
+      <p class="section-lead reveal-up">Currently doing independent research in post-quantum cryptography, alongside my bachelor's coursework. Short version below, with the option to go deeper.</p>
+
+      <div class="research-card glass reveal-up">
+        <div class="research-top">
+          <span class="project-tag">Independent Research</span>
+          <span class="status-pill">In Progress</span>
+        </div>
+        <h3 class="research-title">Beyond Key Exchange: A Framework for Post-Quantum Certificate Migration in Regulated Financial Infrastructure</h3>
+        <p class="research-meta mono">Design Science Research · Post-Quantum Cryptography · Financial Infrastructure</p>
+        <p class="research-teaser">Quantum computers will eventually break the encryption the internet runs on. The industry has already started fixing how systems exchange keys — but almost no one has touched how systems prove their identity through certificates, and banks are the most exposed part of that gap. This research builds a staged, risk-based framework to close it.</p>
+
+        <button class="research-toggle mono" id="researchToggle" aria-expanded="false" aria-controls="researchDetail">
+          <span class="toggle-label-more">Read the full framework</span>
+          <span class="toggle-label-less">Show less</span>
+          <span class="toggle-arrow">↓</span>
+        </button>
+
+        <div class="research-detail" id="researchDetail" hidden>
+          <div class="research-block">
+            <h4 class="mono">the_gap</h4>
+            <p>Roughly half of measured internet domains have already moved to post-quantum key exchange. Post-quantum certificates — the part that proves a server's identity — sit at almost 0% adoption on the same domains, and banking is measured as one of the slowest sectors to move on either front, despite holding the most sensitive, long-lived data.</p>
+          </div>
+          <div class="research-block">
+            <h4 class="mono">research_objectives</h4>
+            <ul class="research-list">
+              <li><strong>RO1</strong> — Design a staged, risk-based migration roadmap built specifically around how regulated banks actually operate.</li>
+              <li><strong>RO2</strong> — Build a decision model that matches each hybrid-certificate design (Composite, Catalyst, Chameleon) to a system's risk level, bandwidth limits, and regulatory exposure.</li>
+              <li><strong>RO3</strong> — Propose and test a way to verify that a hybrid certificate's dual-security promise is actually enforced after deployment, not just assumed.</li>
+            </ul>
+          </div>
+          <div class="research-block">
+            <h4 class="mono">migration_path</h4>
+            <ul class="research-list">
+              <li><strong>Stage 1</strong> — Hybrid leaf certificates, scheme chosen to fit the system.</li>
+              <li><strong>Stage 2</strong> — Hybrid CA chains, coordinated with certificate authorities.</li>
+              <li><strong>Stage 3</strong> — Full post-quantum certificates with updated revocation checks, classical signatures retired.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section class="section" id="education">
+    <div class="section-inner">
+      <span class="section-eyebrow mono reveal-up">// education</span>
+      <h2 class="section-title reveal-up">Education</h2>
+
+      <div class="timeline">
+        <div class="timeline-item reveal-up">
+          <div class="timeline-node"></div>
+          <div class="timeline-card glass">
+            <span class="mono timeline-date">2023 — Present</span>
+            <h3>BSc in Software Engineering <span class="accent-text">— Cybersecurity Major</span></h3>
+            <p class="timeline-org">Daffodil International University</p>
+            <p>Currently in progress, CGPA 3.27 / 4.00 so far. Coursework and personal projects lean toward networking, systems security, and applied software development.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up delay-1">
+          <div class="timeline-node"></div>
+          <div class="timeline-card glass">
+            <span class="mono timeline-date">2020</span>
+            <h3>Higher Secondary Certificate (H.S.C)</h3>
+            <p class="timeline-org">Abu Abbas College — Science</p>
+            <p>Completed with a GPA of 4.83 / 5.00.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up delay-2">
+          <div class="timeline-node"></div>
+          <div class="timeline-card glass">
+            <span class="mono timeline-date">2018</span>
+            <h3>Secondary School Certificate (S.S.C)</h3>
+            <p class="timeline-org">Anjuman Adarsha Govt. High School — Science</p>
+            <p>Completed with a GPA of 4.44 / 5.00.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= CERTIFICATIONS ================= -->
   <section class="section" id="certifications">
     <div class="section-inner">
@@ -354,41 +382,75 @@
     </div>
   </section>
 
-  <!-- ================= CONTACT ================= -->
-  <section class="section" id="contact">
+  <!-- ================= REFERENCES ================= -->
+  <section class="section" id="references">
     <div class="section-inner">
-      <span class="section-eyebrow mono reveal-up">// contact</span>
-      <h2 class="section-title reveal-up">Let's Connect</h2>
-      <div class="contact-card glass reveal-up">
-        <p class="contact-lead">Open to internships and entry-level roles in software engineering or security. If something here caught your eye, my inbox is open.</p>
-        <div class="contact-grid">
-          <a href="mailto:foysalmahmud787@gmail.com" class="contact-item">
-            <span class="contact-label mono">email</span>
-            <span class="contact-value">foysalmahmud787@gmail.com</span>
-          </a>
-          <a href="https://github.com/git-purno" target="_blank" rel="noopener" class="contact-item">
-            <span class="contact-label mono">github</span>
-            <span class="contact-value">github.com/git-purno</span>
-          </a>
-          <a href="https://www.facebook.com/foysal.mahmud.purno" target="_blank" rel="noopener" class="contact-item">
-            <span class="contact-label mono">facebook</span>
-            <span class="contact-value">foysal.mahmud.purno</span>
-          </a>
-          <span class="contact-item contact-item-disabled">
-            <span class="contact-label mono">linkedin</span>
-            <span class="contact-value">coming soon</span>
-          </span>
+      <span class="section-eyebrow mono reveal-up">// references</span>
+      <h2 class="section-title reveal-up">People Who Can Vouch For Me</h2>
+      <div class="reference-grid">
+        <div class="reference-card glass reveal-up">
+          <h3>Md Ashekul Islam Emon</h3>
+          <p class="reference-role">Sr. Executive (Business Development), Mangrove-Sunset Hotel &amp; Resort Ltd.</p>
+          <a href="tel:+8801843293925" class="reference-contact mono">📞 01843-293925</a>
         </div>
-        <a href="assets/Foysal_Mahmud_Purno_Resume.pdf" class="btn btn-primary" download>Download Résumé</a>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer">
-  <p class="mono">© <span id="year"></span> Foysal Mahmud Purno — built line by line, tested port by port.</p>
-  <a href="#home" class="back-top mono">back to top ↑</a>
+<!-- ================= FOOTER / CONTACT ================= -->
+<footer class="footer-contact" id="contact">
+  <div class="section-inner footer-inner">
+    <span class="section-eyebrow mono reveal-up">// contact</span>
+    <h2 class="section-title reveal-up">Let's Connect</h2>
+    <p class="footer-lead reveal-up">Open to internships and entry-level roles in software engineering or security. If something here caught your eye, my inbox is open.</p>
+
+    <form class="contact-form glass reveal-up" id="contactForm" action="https://formsubmit.co/foysalmahmud787@gmail.com" method="POST">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="New message from your portfolio site">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <div class="form-row">
+        <label for="cf-name" class="mono">name</label>
+        <input type="text" id="cf-name" name="Name" placeholder="Your name" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-email" class="mono">email</label>
+        <input type="email" id="cf-email" name="Email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-message" class="mono">message</label>
+        <textarea id="cf-message" name="Message" rows="4" placeholder="What's on your mind?" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="cfSubmit">Send Message</button>
+      <p class="form-status mono" id="cfStatus" hidden></p>
+    </form>
+
+    <div class="social-icons reveal-up">
+      <a href="https://github.com/git-purno" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.63 1.6.23 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.15v3.19c0 .3.21.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/foysal.mahmud.purno" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.8 8.44-4.95 8.44-9.94Z"/></svg>
+      </a>
+      <a href="https://wa.me/8801581873351" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2.05 22l5.42-1.32a9.87 9.87 0 0 0 4.57 1.13h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.06h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.76.79-3.05-.2-.31a8.13 8.13 0 0 1-1.25-4.32c0-4.5 3.66-8.16 8.29-8.16 2.21 0 4.29.86 5.86 2.43a8.23 8.23 0 0 1 2.42 5.85c0 4.5-3.67 8.13-8.29 8.13Zm4.53-6.1c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.24-.64.81-.78.97-.15.16-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31s-.86.84-.86 2.05.88 2.38 1 2.55c.13.16 1.73 2.64 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+      </a>
+      <span class="social-icon social-icon-disabled" aria-label="LinkedIn — coming soon" title="LinkedIn — coming soon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45Z"/></svg>
+      </span>
+    </div>
+
+    <a href="assets/Foysal_Mahmud_Purno_Resume.pdf" class="btn btn-ghost reveal-up" download>Download Résumé</a>
+
+    <div class="footer-bottom">
+      <p class="mono">© <span id="year"></span> Foysal Mahmud Purno — built line by line, tested port by port.</p>
+      <a href="#home" class="back-top mono">back to top ↑</a>
+    </div>
+  </div>
 </footer>
 
 <script src="script.js"></script>

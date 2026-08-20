@@ -1,48 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ============ PRELOADER (terminal boot sequence) ============ */
+  /* ============ PRELOADER (circular progress ring) ============ */
   const preloader = document.getElementById('preloader');
-  const lines = document.querySelectorAll('.pre-line');
-  const barFill = document.getElementById('preBarFill');
+  const ringFill = document.getElementById('preRingFill');
   const percentLabel = document.getElementById('prePercent');
+  const statusLabel = document.getElementById('preStatus');
+  const RING_CIRCUMFERENCE = 2 * Math.PI * 52; // matches r=52 in the SVG
 
-  function typeLine(el, cb){
-    const text = el.dataset.text;
-    el.classList.add('show');
-    el.style.borderRightColor = 'rgba(167,139,250,.6)';
-    let i = 0;
-    const speed = 14;
-    const timer = setInterval(() => {
-      el.textContent = text.slice(0, i + 1);
-      i++;
-      if (i >= text.length){
-        clearInterval(timer);
-        el.style.borderRightColor = 'transparent';
-        cb && cb();
-      }
-    }, speed);
-  }
+  const STATUS_MESSAGES = [
+    { at: 0, text: 'Loading portfolio…' },
+    { at: 30, text: 'Warming up the glass panels…' },
+    { at: 65, text: 'Almost there…' },
+    { at: 95, text: 'Welcome — take a look around.' }
+  ];
+  let lastStatus = '';
 
-  function runBoot(index){
-    if (index >= lines.length){
-      finishBoot();
-      return;
+  function updateStatus(progress){
+    const match = [...STATUS_MESSAGES].reverse().find(s => progress >= s.at);
+    if (match && match.text !== lastStatus){
+      lastStatus = match.text;
+      statusLabel.style.opacity = '0';
+      setTimeout(() => { statusLabel.textContent = match.text; statusLabel.style.opacity = '1'; }, 150);
     }
-    typeLine(lines[index], () => runBoot(index + 1));
   }
 
   let progress = 0;
   const progressTimer = setInterval(() => {
-    progress = Math.min(100, progress + Math.random() * 14);
-    barFill.style.width = progress + '%';
-    percentLabel.textContent = String(Math.floor(progress)).padStart(2, '0') + '%';
+    progress = Math.min(100, progress + Math.random() * 13);
+    ringFill.style.strokeDashoffset = String(RING_CIRCUMFERENCE * (1 - progress / 100));
+    percentLabel.textContent = Math.floor(progress) + '%';
+    updateStatus(progress);
     if (progress >= 100) clearInterval(progressTimer);
-  }, 140);
+  }, 150);
 
   function finishBoot(){
     progress = 100;
-    barFill.style.width = '100%';
+    ringFill.style.strokeDashoffset = '0';
     percentLabel.textContent = '100%';
+    updateStatus(100);
     setTimeout(() => {
       preloader.classList.add('hide');
       document.body.style.overflow = '';
@@ -52,9 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.body.style.overflow = 'hidden';
-  runBoot(0);
-  // safety fallback in case something stalls
-  setTimeout(() => { if (!preloader.classList.contains('hide')) finishBoot(); }, 6000);
+  ringFill.style.strokeDasharray = String(RING_CIRCUMFERENCE);
+  ringFill.style.strokeDashoffset = String(RING_CIRCUMFERENCE);
+  setTimeout(finishBoot, 1900);
 
   /* ============ WELCOME MODAL (first visit only) ============ */
   const welcomeOverlay = document.getElementById('welcomeOverlay');
@@ -92,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.setAttribute('aria-expanded', 'false');
   }));
 
-  const sections = document.querySelectorAll('main .section, .hero');
+  const sections = document.querySelectorAll('main .section, .hero, .footer-contact');
   const navAnchors = document.querySelectorAll('.nav-link[href^="#"]');
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -235,5 +230,65 @@ document.addEventListener('DOMContentLoaded', () => {
   modalClose.addEventListener('click', closeProject);
   projectOverlay.addEventListener('click', (e) => { if (e.target === projectOverlay) closeProject(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !projectOverlay.hidden) closeProject(); });
+
+  /* ============ RESEARCH CARD EXPAND/COLLAPSE ============ */
+  const researchToggle = document.getElementById('researchToggle');
+  const researchDetail = document.getElementById('researchDetail');
+  if (researchToggle && researchDetail){
+    researchToggle.addEventListener('click', () => {
+      const isOpen = researchToggle.getAttribute('aria-expanded') === 'true';
+      researchToggle.setAttribute('aria-expanded', String(!isOpen));
+      researchDetail.hidden = isOpen;
+      if (!isOpen){
+        researchDetail.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+          researchDetail.style.transition = 'max-height .5s var(--ease, ease)';
+          researchDetail.style.maxHeight = researchDetail.scrollHeight + 'px';
+        });
+      }
+    });
+  }
+
+  /* ============ CONTACT FORM ============ */
+  const contactForm = document.getElementById('contactForm');
+  const cfSubmit = document.getElementById('cfSubmit');
+  const cfStatus = document.getElementById('cfStatus');
+
+  if (contactForm){
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const honey = contactForm.querySelector('[name="_honey"]').value;
+      if (honey) return; // bot caught by honeypot
+
+      cfSubmit.disabled = true;
+      cfSubmit.textContent = 'Sending...';
+      cfStatus.hidden = true;
+
+      try {
+        const formData = new FormData(contactForm);
+        const endpoint = contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok){
+          cfStatus.textContent = 'Message sent — thanks for reaching out! I\u2019ll get back to you soon.';
+          cfStatus.className = 'form-status mono ok';
+          cfStatus.hidden = false;
+          contactForm.reset();
+        } else {
+          throw new Error('Request failed');
+        }
+      } catch (err){
+        cfStatus.textContent = 'Something went wrong. Please email me directly instead.';
+        cfStatus.className = 'form-status mono err';
+        cfStatus.hidden = false;
+      } finally {
+        cfSubmit.disabled = false;
+        cfSubmit.textContent = 'Send Message';
+      }
+    });
+  }
 
 });

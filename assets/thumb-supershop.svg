@@ -1,23 +1,23 @@
 <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bgSS" x1="0" y1="0" x2="400" y2="240" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#211129"/>
-      <stop offset="1" stop-color="#120f1f"/>
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
     </linearGradient>
     <radialGradient id="glowSS" cx="0.85" cy="0.85" r="0.8">
-      <stop offset="0" stop-color="#e879f9" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#e879f9" stop-opacity="0"/>
+      <stop offset="0" stop-color="#16255C" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#16255C" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glowSS2" cx="0.15" cy="0.1" r="0.7">
-      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.4"/>
-      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+      <stop offset="0" stop-color="#243B8F" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#243B8F" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="400" height="240" fill="url(#bgSS)"/>
   <rect width="400" height="240" fill="url(#glowSS)"/>
   <rect width="400" height="240" fill="url(#glowSS2)"/>
 
-  <g opacity="0.15" stroke="#ffffff" stroke-width="1">
+  <g opacity="0.06" stroke="#ffffff" stroke-width="1">
     <line x1="40" y1="0" x2="40" y2="240"/><line x1="90" y1="0" x2="90" y2="240"/>
     <line x1="140" y1="0" x2="140" y2="240"/><line x1="190" y1="0" x2="190" y2="240"/>
     <line x1="240" y1="0" x2="240" y2="240"/><line x1="290" y1="0" x2="290" y2="240"/>
@@ -25,7 +25,7 @@
   </g>
 
   <!-- barcode -->
-  <g fill="#f2eefc" opacity="0.9">
+  <g fill="#243B8F" opacity="0.9">
     <rect x="130" y="70" width="4" height="60"/><rect x="140" y="70" width="8" height="60"/>
     <rect x="154" y="70" width="4" height="60"/><rect x="164" y="70" width="10" height="60"/>
     <rect x="180" y="70" width="4" height="60"/><rect x="190" y="70" width="6" height="60"/>
@@ -34,13 +34,13 @@
     <rect x="250" y="70" width="8" height="60"/><rect x="264" y="70" width="4" height="60"/>
   </g>
   <!-- shopping cart, abstract line icon -->
-  <g fill="none" stroke="#c4b5fd" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+  <g fill="none" stroke="#3B54B4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
     <path d="M60 60 h14 l16 62 h108"/>
     <path d="M90 122 l10 -40 h100 l-12 40 z"/>
     <circle cx="105" cy="145" r="7"/>
     <circle cx="175" cy="145" r="7"/>
   </g>
-  <g fill="#22d3ee" opacity="0.75">
+  <g fill="#3B54B4" opacity="0.75">
     <rect x="284" y="150" width="70" height="14" rx="7"/>
   </g>
 </svg>
